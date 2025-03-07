@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-blue-800 p-4 shadow-md">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-2xl font-bold"
+          >Library Management System</a
+        >
+
+        <form class="flex items-center space-x-2">
+          <input 
+              class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              type="search" 
+              placeholder="Search" 
+              aria-label="Search"
+          >
+          <button 
+              class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              type="submit"
+          >
+              Search
+          </button>
+      </form>
+
+
+
+
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="{% url 'home' %}"
+              class="text-white hover:text-yellow-300 transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'about' %}"
+              class="text-white hover:text-yellow-300 transition"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'login' %}"
+              class="text-white hover:text-yellow-300 transition"
+              >Login</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'register' %}"
+              class="text-white hover:text-yellow-300 transition"
+              >Register</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-white hover:text-yellow-300 transition"
+              >Admin Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <br />
+      {% block content %} {% endblock content %}
+    </div>
+    <!-- <script type="text/javascript" src="{% static 'js/Available_Books.js' %}">
+    </script> -->
+  </body>
+</html>

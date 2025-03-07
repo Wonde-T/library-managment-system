@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .models import Book
 # Create your views here.
 
 def loginpage(request):
@@ -15,7 +16,7 @@ def loginpage(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('student')
     else:
        return HttpResponse("Invalid login credentials.")
   
@@ -37,3 +38,16 @@ def register(request):
 
 def home(request):
   return render(request, 'authenticate/home.html',)
+
+def about(request):
+  return render(request, 'authenticate/about.html',)
+
+def login_student(request):
+  
+  return render(request, 'authenticate/login_student.html',)
+
+def available_books(request):
+
+  books = Book.objects.all()
+  context = {'books':books,}
+  return render(request, 'authenticate/available_books.html', context)

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% extends 'authenticate/main.html' %} {% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+  </head>
+
+  <body class="bg-gray-100">
+    {% block content %}
+    <style>
+      .add-btn {
+        background-color: #2b58b7; /* Vibrant orange */
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 7px 10px;
+        font-size: 13px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .add-btn:hover {
+        background-color: #11a0ad;
+        transform: scale(1.05);
+      }
+
+      .add-btn:active {
+        background-color: #2b58b7;
+        transform: scale(0.95);
+      }
+
+      .add-btn:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.7);
+      }
+    </style>
+    <!-- Main Content Area (Sidebar + Dashboard) -->
+    <div class="flex">
+      <!-- Sidebar (Left Side Navbar) -->
+      <aside class="w-64 bg-blue-900 text-white h-screen p-6 sticky top-0">
+        <h2 class="text-xl font-bold mb-6">Dashboard</h2>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="block p-2 rounded hover:bg-blue-700"
+              >📚 All Books</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block p-2 rounded hover:bg-blue-700"
+              >📖 My Issued Books</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block p-2 rounded hover:bg-blue-700"
+              >👤 My Account</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block p-2 rounded hover:bg-blue-700"
+              >🔒 Change Password</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block p-2 rounded hover:bg-red-600">🚪 Logout</a>
+          </li>
+        </ul>
+      </aside>
+
+
+     
+    
+
+      <body class="bg-gray-100 p-8">
+          <div class="max-w-4xl mx-auto">
+              <h1 class="text-3xl font-bold text-gray-800 mb-6">List of all available books</h1>
+      
+              <!-- Book Management Table -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                  <table class="min-w-full">
+                      <thead class="bg-blue-600 text-white">
+                          <tr>
+                              <th class="px-6 py-3 text-left text-sm font-medium uppercase">Title</th>
+                              <th class="px-6 py-3 text-left text-sm font-medium uppercase">Author</th>
+                              <th class="px-6 py-3 text-left text-sm font-medium uppercase">category</th>
+                              <th class="px-6 py-3 text-left text-sm font-medium uppercase">available_copies</th>
+                              <th class="px-6 py-3 text-left text-sm font-medium uppercase">total_copies</th>
+                          </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200">
+                          {% for book in books %}
+                          <tr class="hover:bg-gray-50 transition-colors">
+                              <td class="px-6 py-4 text-sm text-gray-700">{{ book.title }}</td>
+                              <td class="px-6 py-4 text-sm text-gray-700">{{ book.author }}</td>
+                              <td class="px-6 py-4 text-sm text-gray-700">{{ book.category }}</td>
+                              <td class="px-6 py-4 text-sm text-gray-700">{{ book.available_copies }}</td>
+                              <td class="px-6 py-4 text-sm text-gray-700">{{ book.total_copies }}</td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </body>
+
+
+      </main>
+    </div>
+    {% endblock content %}
+  </body>
+</html>
