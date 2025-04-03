@@ -51,3 +51,9 @@ def available_books(request):
   books = Book.objects.all()
   context = {'books':books,}
   return render(request, 'authenticate/available_books.html', context)
+
+def unavailable_books(request):
+
+  books = Book.objects.all()
+  context = {'books':books,}
+  return render(request, 'authenticate/available_books.html', context)
