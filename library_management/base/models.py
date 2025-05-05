@@ -39,7 +39,7 @@ class BookIssue(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     issued_date = models.DateField(auto_now_add=True)
     due_date = models.DateField()
-    returned_date = models.DateField(blank=True, null=True)
+    returned_date = models.DateField(blank=False, null=True)
 
     def is_overdue(self):
         return date.today() > self.due_date and self.returned_date is None
